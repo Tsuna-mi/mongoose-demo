@@ -1,31 +1,21 @@
 var mongoose = require('mongoose');
+var express = require('express');
 
-var addMovie = require('./actions/addMovie');
+var db = require('./db');
 
-var findAll = require('./actions/findAll');
-var findMovie = require('./actions/findMovie');
-var findWithCookie = require('./actions/findWithCookie');
+var routes = require('./routes/movies')
 
-var db = mongoose.connection;
+var app = express();
 
-db.on('error', console.error);
-db.once('open', function() {
+var PORT =  process.env.PORT || 3005;
+var dbURI = 'mongodb://localhost/test';
 
-	// ---- Create your schemas and models here. ----
+app.use('/', routes);
 
-	var thorDocData = {
-		  title: 'Superman vs Batman',
-		  rating: 'PG-13',
-		  releaseYear: '2015', // Notice the use of a String rather than a Number - Mongoose will automatically convert this for us.
-		  hasCreditCookie: true
-	}
+db.connect(dbURI, function () {
 
-	//addMovie(thorDocData);
-	//findAll();
-	//findMovie('Spiderman');
-	findWithCookie();
-
+  app.listen( PORT, function() {
+		console.log("Listening on port " + PORT);
+	});
 
 });
-
-mongoose.connect('mongodb://localhost/test');
