@@ -1,20 +1,15 @@
-var Movie = require('../../../models/movie');
+import Movie from '../../../models/movie';
 
 function addMovie( thorDocData ) {
 
 	var thor = new Movie(thorDocData);
 
 	thor.save()
-		.then(function(addedMovie) {
-		  console.dir( addedMovie ) ;
-		})
-		.catch(function(err) {
-			console.log(err);
-		})
+		.catch( (err) =>  console.log(err) );
 
 }
 
-module.exports = addMovie;
+export default addMovie;
 
 // 	var thorDocData = {
 // 		  title: 'Superman vs Batman',
