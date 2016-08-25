@@ -1,4 +1,4 @@
-import Movie from '../../../models/movie';
+const Movie = process.getModel('movie');
 
 function getAll( req, res ) {
 

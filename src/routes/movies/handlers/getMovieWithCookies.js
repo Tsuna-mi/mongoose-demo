@@ -1,11 +1,8 @@
-import Movie from '../../../models/movie';
+const Movie = process.getModel('movie');
 
 function getMovieWithCookies( req, res ) {
 
-	// Find all movies that have a credit cookie.
-
-	//Movie.find({ hasCreditCookie: true })
-	Movie.findAllWithCreditCookies()
+	Movie.find({ hasCreditCookie: true })
 		.then( (movies) => res.json(movies) )
 		.catch( (err) => console.log(err) );
 

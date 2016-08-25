@@ -1,10 +1,17 @@
-import Movie from '../../../models/movie';
+const Movie = process.getModel('movie');
 
-function addMovie( thorDocData ) {
+function addMovie( req, res ) {
 
-	var thor = new Movie(thorDocData);
+	console.log(req.body)
+	console.log(req.body.movie)
+	let isThereMovie = req.body && req.body.movie;
+	if (!isThereMovie) res.send("No movie to add!")
+
+	let thorDocData = req.body.movie;
+	let thor = new Movie(thorDocData);
 
 	thor.save()
+		.then( data => res.json(data) )
 		.catch( (err) =>  console.log(err) );
 
 }
