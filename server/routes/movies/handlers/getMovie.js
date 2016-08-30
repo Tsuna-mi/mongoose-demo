@@ -22,4 +22,4 @@ function getMovie( req, res ) {
 
 }
 
-export default getMovie;
+module.exports = getMovie;

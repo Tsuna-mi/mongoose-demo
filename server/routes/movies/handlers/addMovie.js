@@ -16,7 +16,7 @@ function addMovie( req, res ) {
 
 }
 
-export default addMovie;
+module.exports = addMovie;
 
 // 	var thorDocData = {
 // 		  title: 'Superman vs Batman',

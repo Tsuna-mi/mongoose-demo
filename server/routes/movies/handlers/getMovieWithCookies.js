@@ -8,4 +8,4 @@ function getMovieWithCookies( req, res ) {
 
 }
 
-export default getMovieWithCookies;
+module.exports = getMovieWithCookies;

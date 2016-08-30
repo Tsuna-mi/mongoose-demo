@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "mongoose demo",
   "scripts": {
-    "dev": "nodemon src --exec babel-node --presets es2015,stage-2",
-    "build": "babel src -s -D -d dist --presets es2015,stage-2",
-    "start": "node dist",
-    "prestart": "npm run -s build",
-    "test": "eslint src"
+    "dev": "nodemon index",
+    "start": "node index"
+  },
+  "engine": {
+    "node": ">=6.4"
   },
   "main": "app.js",
   "author": "JuanMa Garrido <juanma.garrido@gmail.com>",
@@ -17,6 +17,10 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-2": "^6.13.0",
     "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.0",
+    "eslint-plugin-react": "^6.2.0",
     "nodemon": "^1.9.2"
   },
   "dependencies": {
